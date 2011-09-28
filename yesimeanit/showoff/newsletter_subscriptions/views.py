@@ -27,4 +27,5 @@ Unsubscribe here: %s
         self.template_name_suffix = '_result'
         return self.render_to_response(self.get_context_data(
             object=self.object,
+            subscribed=True,
             message=self.subscribed_message))
