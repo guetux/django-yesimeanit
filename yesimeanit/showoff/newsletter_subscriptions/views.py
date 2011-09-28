@@ -8,7 +8,7 @@ from .forms import (SubscribtionForm, UnsubscriptionForm)
 from .models import NewsletterSubscription
 
 
-class SubscriptionView(generic.CreateView):
+class SubscribeView(generic.CreateView):
     form_class = SubscribtionForm
     model = NewsletterSubscription
     subscribed_message = _('Subscription request successful. You have been sent a mail with a confirmation link.')
@@ -24,7 +24,7 @@ class SubscriptionView(generic.CreateView):
             message=self.subscribed_message))
 
 
-class UnsubscriptionView(generic.FormView):
+class UnsubscribeView(generic.FormView):
     form_class = UnsubscriptionForm
     model = NewsletterSubscription
     template_name = 'newsletter_subscriptions/newslettersubscription_unsubscribe_form.html'

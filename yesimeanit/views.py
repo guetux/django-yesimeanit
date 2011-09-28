@@ -33,7 +33,7 @@ class UnsubscriptionView(YesIMeanItView):
     unsubscribed_message = _('The subscription has been successfully cancelled.')
 
     def get_context_data(self, **kwargs):
-        if self.confirmed_on:
+        if self.object.confirmed_on:
             if self.object.unsubscribed_on:
                 kwargs['already_unsubscribed'] = True
                 kwargs['message'] = self.already_unsubscribed_message
@@ -46,4 +46,4 @@ class UnsubscriptionView(YesIMeanItView):
             kwargs['not_active_yet'] = True
             kwargs['message'] = self.not_active_yet_message
 
-        return super(ConfirmationView, self).get_context_data(**kwargs)
+        return super(UnsubscriptionView, self).get_context_data(**kwargs)
