@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-28 08:52+0200\n"
+"POT-Creation-Date: 2011-09-28 10:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,3 +49,72 @@ msgstr "Abonnement"
 #: models.py:33
 msgid "subscriptions"
 msgstr "Abonnemente"
+
+#: views.py:14
+msgid "This subscription has already been confirmed."
+msgstr "Das Abonnement wurde schon bestätigt."
+
+#: views.py:15
+msgid "The subscription has been successfully confirmed."
+msgstr "Das Abonnement wurde erfolgreich bestätigt."
+
+#: views.py:31
+msgid "This subscription has already been deactivated."
+msgstr "Das Abonnement wurde schon deaktiviert."
+
+#: views.py:32
+msgid "This subscription cannot be deactivated, it isn't activated yet."
+msgstr "Das Abonnement kann icht deaktiviert werden weil es noch nicht aktiv ist."
+
+#: views.py:33
+msgid "The subscription has been successfully cancelled."
+msgstr "Das Abonnement wurde erfolgreich aufgehoben."
+
+#: showoff/newsletter_subscriptions/forms.py:15
+msgid "This e-mail address already has an active subscription."
+msgstr "Diese E-Mailadresse ist schon eingetragen."
+
+#: showoff/newsletter_subscriptions/models.py:9
+msgid "Mrs."
+msgstr "Frau"
+
+#: showoff/newsletter_subscriptions/models.py:10
+msgid "Mr."
+msgstr "Herr"
+
+#: showoff/newsletter_subscriptions/models.py:11
+msgid "Unspecified"
+msgstr "-"
+
+#: showoff/newsletter_subscriptions/models.py:14
+msgid "salutation"
+msgstr "Anrede"
+
+#: showoff/newsletter_subscriptions/models.py:16
+msgid "email"
+msgstr "E-Mailadresse"
+
+#: showoff/newsletter_subscriptions/models.py:17
+msgid "first name"
+msgstr "Vorname"
+
+#: showoff/newsletter_subscriptions/models.py:18
+msgid "last name"
+msgstr "Nachname"
+
+#: showoff/newsletter_subscriptions/models.py:22
+#: showoff/newsletter_subscriptions/templates/newsletter_subscriptions/newslettersubscription_result.html:6
+msgid "newsletter subscription"
+msgstr "Newsletter-Abonnement"
+
+#: showoff/newsletter_subscriptions/models.py:23
+msgid "newsletter subscriptions"
+msgstr "Newsletter-Abonnemente"
+
+#: showoff/newsletter_subscriptions/views.py:13
+msgid ""
+"Subscription request successful. You have been sent a mail with a "
+"confirmation link."
+msgstr ""
+"Abonnement erfolgreich erstellt. Ihnen wurde soeben ein E-Mail mit "
+"einem Bestätigungslink gesendet."

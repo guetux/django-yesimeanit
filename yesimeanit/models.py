@@ -11,7 +11,7 @@ def _subscription_code(length=20):
 
 
 class SubscriptionManager(models.Manager):
-    def subscribers(self):
+    def active(self):
         return self.filter(is_active=True)
 
 
@@ -38,7 +38,7 @@ class Subscription(models.Model):
         if not self.created:
             self.created = datetime.now()
 
-        self.is_active = (self.confirmed_on and not self.unsubscribed_on)
+        self.is_active = True if (self.confirmed_on and not self.unsubscribed_on) else False
         self.last_updated = datetime.now()
 
         super(Subscription, self).save(*args, **kwargs)
