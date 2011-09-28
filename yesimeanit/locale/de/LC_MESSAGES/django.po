@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-28 10:39+0200\n"
+"POT-Creation-Date: 2011-09-28 17:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,57 +64,85 @@ msgstr "Das Abonnement wurde schon deaktiviert."
 
 #: views.py:32
 msgid "This subscription cannot be deactivated, it isn't activated yet."
-msgstr "Das Abonnement kann icht deaktiviert werden weil es noch nicht aktiv ist."
+msgstr ""
+"Das Abonnement kann icht deaktiviert werden weil es noch nicht aktiv ist."
 
-#: views.py:33
+#: views.py:33 showoff/newsletter_subscriptions/views.py:31
 msgid "The subscription has been successfully cancelled."
 msgstr "Das Abonnement wurde erfolgreich aufgehoben."
 
-#: showoff/newsletter_subscriptions/forms.py:15
-msgid "This e-mail address already has an active subscription."
-msgstr "Diese E-Mailadresse ist schon eingetragen."
-
-#: showoff/newsletter_subscriptions/models.py:9
-msgid "Mrs."
-msgstr "Frau"
-
-#: showoff/newsletter_subscriptions/models.py:10
-msgid "Mr."
-msgstr "Herr"
-
-#: showoff/newsletter_subscriptions/models.py:11
-msgid "Unspecified"
-msgstr "-"
-
-#: showoff/newsletter_subscriptions/models.py:14
+#: showoff/newsletter_subscriptions/forms.py:9
+#: showoff/newsletter_subscriptions/models.py:41
 msgid "salutation"
 msgstr "Anrede"
 
-#: showoff/newsletter_subscriptions/models.py:16
+#: showoff/newsletter_subscriptions/forms.py:18
+msgid "This e-mail address already has an active subscription."
+msgstr "Diese E-Mailadresse ist schon eingetragen."
+
+#: showoff/newsletter_subscriptions/models.py:36
+msgid "Mrs."
+msgstr "Frau"
+
+#: showoff/newsletter_subscriptions/models.py:37
+msgid "Mr."
+msgstr "Herr"
+
+#: showoff/newsletter_subscriptions/models.py:38
+msgid "Unspecified"
+msgstr "-"
+
+#: showoff/newsletter_subscriptions/models.py:43
 msgid "email"
 msgstr "E-Mailadresse"
 
-#: showoff/newsletter_subscriptions/models.py:17
+#: showoff/newsletter_subscriptions/models.py:44
 msgid "first name"
 msgstr "Vorname"
 
-#: showoff/newsletter_subscriptions/models.py:18
+#: showoff/newsletter_subscriptions/models.py:45
 msgid "last name"
 msgstr "Nachname"
 
-#: showoff/newsletter_subscriptions/models.py:22
+#: showoff/newsletter_subscriptions/models.py:49
 #: showoff/newsletter_subscriptions/templates/newsletter_subscriptions/newslettersubscription_result.html:6
+#: showoff/newsletter_subscriptions/templates/newsletter_subscriptions/newslettersubscription_subscribe_form.html:7
+#: showoff/newsletter_subscriptions/templates/newsletter_subscriptions/newslettersubscription_unsubscribe_form.html:7
 msgid "newsletter subscription"
 msgstr "Newsletter-Abonnement"
 
-#: showoff/newsletter_subscriptions/models.py:23
+#: showoff/newsletter_subscriptions/models.py:50
 msgid "newsletter subscriptions"
 msgstr "Newsletter-Abonnemente"
 
-#: showoff/newsletter_subscriptions/views.py:13
+#: showoff/newsletter_subscriptions/views.py:14
 msgid ""
 "Subscription request successful. You have been sent a mail with a "
 "confirmation link."
 msgstr ""
-"Abonnement erfolgreich erstellt. Ihnen wurde soeben ein E-Mail mit "
-"einem Bestätigungslink gesendet."
+"Abonnement erfolgreich erstellt. Ihnen wurde soeben ein E-Mail mit einem "
+"Bestätigungslink gesendet."
+
+#: showoff/newsletter_subscriptions/templates/newsletter_subscriptions/newslettersubscription_subscribe_form.html:12
+msgid "Subscribe"
+msgstr "Anmelden"
+
+#: showoff/newsletter_subscriptions/templates/newsletter_subscriptions/newslettersubscription_subscribe_form.html:17
+#, python-format
+msgid ""
+"You are free to <a href=\"%(unsubscription_url)s\">unsubscribe</a> any time "
+"you want."
+msgstr ""
+"Sie können sich jederzeit auch wieder <a href=\"%(unsubscription_url)s\">abmelden</a>."
+
+#: showoff/newsletter_subscriptions/templates/newsletter_subscriptions/newslettersubscription_unsubscribe_form.html:12
+msgid "Unsubscribe"
+msgstr "Abmelden"
+
+#: showoff/newsletter_subscriptions/templates/newsletter_subscriptions/newslettersubscription_unsubscribe_form.html:17
+#, python-format
+msgid ""
+"You are free to <a href=\"%(subscription_url)s\">subscribe</a> again any "
+"time you want."
+msgstr ""
+"Sie können sich jederzeit auch wieder <a href=\"%(subscription_url)s\">anmelden</a>."
