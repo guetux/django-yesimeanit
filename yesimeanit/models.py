@@ -45,8 +45,14 @@ class Subscription(models.Model):
 
     @models.permalink
     def confirmation_url(self):
-        return ('yesimeanit_subscription_confirm', (), {'code': self.code})
+        return (
+            '%s_%s_confirm' % (self._meta.app_label, self._meta.module_name),
+            (),
+            {'code': self.code})
 
     @models.permalink
     def unsubscription_url(self):
-        return ('yesimeanit_subscription_unsubscribe', (), {'code': self.code})
+        return (
+            '%s_%s_unsubscribe' % (self._meta.app_label, self._meta.module_name),
+            (),
+            {'code': self.code})
