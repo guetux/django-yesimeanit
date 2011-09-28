@@ -27,8 +27,8 @@ class NewsletterSubscriptionManager(SubscriptionManager):
         else:
             object.send_subscription_mail()
 
-        subscription.save()
-        return subscription
+        object.save()
+        return object
 
 
 class NewsletterSubscription(Subscription):
