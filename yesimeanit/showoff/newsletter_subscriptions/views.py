@@ -12,6 +12,7 @@ class SubscriptionView(generic.CreateView):
     form_class = SubscribtionForm
     model = NewsletterSubscription
     subscribed_message = _('Subscription request successful. You have been sent a mail with a confirmation link.')
+    template_name_suffix = '_subscribe_form'
 
     def form_valid(self, form):
         self.object = form.save()
@@ -26,7 +27,7 @@ class SubscriptionView(generic.CreateView):
 class UnsubscriptionView(generic.FormView):
     form_class = UnsubscriptionForm
     model = NewsletterSubscription
-    template_name = 'newsletter_subscriptions/newslettersubscription_form.html'
+    template_name = 'newsletter_subscriptions/newslettersubscription_unsubscribe_form.html'
     unsubscribed_message = _('The subscription has been successfully cancelled.')
 
     def form_valid(self, form):

@@ -1,0 +1,19 @@
+{% extends "newsletter_subscriptions/base.html" %}
+
+{% load i18n %}
+
+{% block content %}
+{% if unsubscribed %}
+    <h1>{% trans "newsletter subscription"|capfirst %}: {{ object }}</h1>
+    <p>{{ message }}</p>
+{% else %}
+    <form method="post" action=".">{% csrf_token %}
+        <table>{{ form.as_table }}</table>
+        <button type="submit">{% trans "Unsubscribe" %}</button>
+    </form>
+
+    {% url newsletter_subscriptions_newslettersubscription_subscribe as subscription_url %}
+    <br />
+    <p>{% blocktrans %}You are free to <a href="{{ subscription_url }}">subscribe</a> again any time you want.{% endblocktrans %}</p>
+{% endif %}
+{% endblock %}

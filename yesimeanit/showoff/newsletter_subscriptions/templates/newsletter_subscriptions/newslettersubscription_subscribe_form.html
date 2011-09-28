@@ -9,7 +9,7 @@
 {% else %}
     <form method="post" action=".">{% csrf_token %}
         <table>{{ form.as_table }}</table>
-        <input type="submit" />
+        <button type="submit">{% trans "Subscribe" %}</button>
     </form>
 
     {% url newsletter_subscriptions_newslettersubscription_unsubscribe as unsubscription_url %}
