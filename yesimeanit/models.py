@@ -40,3 +40,11 @@ class Subscription(models.Model):
         self.last_updated = datetime.now()
 
         super(Subscription, self).save(*args, **kwargs)
+
+    @models.permalink
+    def confirmation_url(self):
+        return ('yesimeanit_subscription_confirm', (), {'code': self.code})
+
+    @models.permalink
+    def unsubscription_url(self):
+        return ('yesimeanit_subscription_unsubscribe', (), {'code': self.code})
