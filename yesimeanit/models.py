@@ -32,6 +32,8 @@ class Subscription(models.Model):
         verbose_name = _('subscription')
         verbose_name_plural = _('subscriptions')
 
+    objects = SubscriptionManager()
+
     def save(self, *args, **kwargs):
         if not self.created:
             self.created = datetime.now()
