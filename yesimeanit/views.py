@@ -10,7 +10,7 @@ class YesIMeanItView(DetailView):
 
 
 class ConfirmationView(YesIMeanItView):
-    already_confirmed_message = ugettext_lazy('This subscription has already been confirmed.')
+    already_confirmed_message = _('This subscription has already been confirmed.')
 
     def get_context_data(self, **kwargs):
         if self.object.confirmed_on:
@@ -24,8 +24,8 @@ class ConfirmationView(YesIMeanItView):
 
 
 class UnsubscriptionView(YesIMeanItView):
-    already_unsubscribed_message = ugettext_lazy('This subscription has already been deactivated.')
-    not_active_yet_message = ugettext_lazy('This subscription cannot be deactivated, it isn\'t activated yet.')
+    already_unsubscribed_message = _('This subscription has already been deactivated.')
+    not_active_yet_message = _('This subscription cannot be deactivated, it isn\'t activated yet.')
 
     def get_context_data(self, **kwargs):
         if self.confirmed_on:
