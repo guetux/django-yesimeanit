@@ -1,6 +1,6 @@
 Newsletter confirmation for {{ site.name }}
 
-Dear {{ object.get_salutation_display }} {{ object.first_name }} {{ object.last_name }}
+{% if object.first_name %}Dear {{ object.get_salutation_display }} {{ object.first_name }} {{ object.last_name }}{% else %}Hi{% endif %}
 
 We are very pleased that you've ordered our newsletter.
 Please click on the following link to activate your subscription:
