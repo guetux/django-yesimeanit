@@ -61,4 +61,4 @@ class NewsletterSubscription(Subscription):
             }).splitlines()
 
         send_mail(lines[0], u'\n'.join(lines[2:]), settings.DEFAULT_FROM_EMAIL,
-            [self.object.email], fail_silently=False)
+            [self.email], fail_silently=False)
