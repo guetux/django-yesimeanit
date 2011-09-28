@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 
+{% load i18n %}
+
 {% block content %}
 <form method="post" action=".">{% csrf_token %}
     <table>{{ form.as_table }}</table>
     <input type="submit" />
 </form>
+
+{% url newsletter_subscriptions_newslettersubscription_unsubscribe as unsubscription_url %}
+<br />
+<p>{% blocktrans %}You are free to <a href="{{ unsubscription_url }}">unsubscribe</a> any time you want.{% endblocktrans %}</p>
 {% endblock %}
