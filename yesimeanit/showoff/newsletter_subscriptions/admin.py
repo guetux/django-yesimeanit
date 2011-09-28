@@ -6,4 +6,5 @@ from .models import NewsletterSubscription
 admin.site.register(NewsletterSubscription,
     list_display=('email', 'is_active', 'confirmed_on', 'unsubscribed_on'),
     list_filter=('is_active',),
+    search_fields=('code', 'email', 'first_name', 'last_name'),
     )
