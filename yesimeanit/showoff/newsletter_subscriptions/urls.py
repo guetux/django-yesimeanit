@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     url(r'^subscribe/(?P<code>\w+)/$', ConfirmationView.as_view(
         model=NewsletterSubscription,
         ), name='newsletter_subscriptions_newslettersubscription_confirm'),
-    url(r'^subscribe/(?P<code>\w+)/$', UnsubscriptionView.as_view(
+    url(r'^unsubscribe/(?P<code>\w+)/$', UnsubscriptionView.as_view(
         model=NewsletterSubscription,
         ), name='newsletter_subscriptions_newslettersubscription_unsubscribe'),
 )
