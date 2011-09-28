@@ -17,8 +17,8 @@ class SubscriptionManager(models.Manager):
 
 class Subscription(models.Model):
     is_active = models.BooleanField(_('is active'), default=False)
-    created = models.DateTimeField(_('created'))
-    last_updated = models.DateTimeField(_('last updated'))
+    created = models.DateTimeField(_('created'), default=datetime.now)
+    last_updated = models.DateTimeField(_('last updated'), default=datetime.now)
 
     code = models.CharField(_('code'), max_length=40, default=_subscription_code,
         unique=True)
