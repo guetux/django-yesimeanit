@@ -1,7 +1,34 @@
+from datetime import datetime
+
+from django.conf import settings
+from django.contrib.sites.models import Site
+from django.core.mail import send_mail
 from django.db import models
+from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
 
-from yesimeanit.models import Subscription
+from yesimeanit.models import Subscription, SubscriptionManager
+
+
+class NewsletterSubscriptionManager(SubscriptionManager):
+    def create_subscription(self, email, **kwargs):
+        confirmed = kwargs.pop('confirmed', False)
+
+        try:
+            object = self.get(email=email)
+        except self.model.DoesNotExist:
+            object = self.model(email=email)
+
+        for k, v in kwargs.items():
+            setattr(object, k, v)
+
+        if confirmed:
+            object.confirmed_on = datetime.now()
+        else:
+            object.send_subscription_mail()
+
+        subscription.save()
+        return subscription
 
 
 class NewsletterSubscription(Subscription):
@@ -24,3 +51,12 @@ class NewsletterSubscription(Subscription):
 
     def __unicode__(self):
         return self.email
+
+    def send_subscription_mail(self):
+        lines = render_to_string('newsletter_subscriptions/subscription_mail.txt', {
+            'site': Site.objects.get_current(),
+            'object': self,
+            }).splitlines()
+
+        send_mail(lines[0], u'\n'.join(lines[2:]), settings.DEFAULT_FROM_EMAIL,
+            [self.object.email], fail_silently=False)

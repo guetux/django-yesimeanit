@@ -1,9 +1,6 @@
 from datetime import datetime
 
 from django.conf import settings
-from django.contrib.sites.models import Site
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
@@ -18,14 +15,7 @@ class SubscriptionView(generic.CreateView):
 
     def form_valid(self, form):
         self.object = form.save()
-
-        lines = render_to_string('newsletter_subscriptions/subscription_mail.txt', {
-            'site': Site.objects.get_current(),
-            'object': self.object,
-            }).splitlines()
-
-        send_mail(lines[0], u'\n'.join(lines[2:]), settings.DEFAULT_FROM_EMAIL,
-            [self.object.email], fail_silently=False)
+        self.object.send_subscription_mail()
 
         self.template_name_suffix = '_result'
         return self.render_to_response(self.get_context_data(
