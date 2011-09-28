@@ -49,6 +49,8 @@ class NewsletterSubscription(Subscription):
         verbose_name = _('newsletter subscription')
         verbose_name_plural = _('newsletter subscriptions')
 
+    objects = NewsletterSubscriptionManager()
+
     def __unicode__(self):
         return self.email
 
