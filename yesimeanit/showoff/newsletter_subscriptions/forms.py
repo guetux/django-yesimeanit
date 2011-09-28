@@ -5,6 +5,9 @@ from .models import NewsletterSubscription
 
 
 class SubscribtionForm(forms.ModelForm):
+    salutation = forms.ChoiceField(choices=NewsletterSubscription.SALUTATION_CHOICES,
+        required=False, label=_('salutation'), widget=forms.RadioSelect)
+
     class Meta:
         model = NewsletterSubscription
         fields = ('salutation', 'first_name', 'last_name', 'email')
