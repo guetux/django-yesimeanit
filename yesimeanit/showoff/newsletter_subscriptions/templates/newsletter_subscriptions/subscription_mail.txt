@@ -1,0 +1,13 @@
+Newsletter confirmation for {{ site.name }}
+
+Dear {{ object.get_salutation_display }} {{ object.first_name }} {{ object.last_name }}
+
+We are very pleased that you've ordered our newsletter.
+Please click on the following link to activate your subscription:
+
+http://{{ site.domain }}{{ object.confirmation_url }}
+
+You can unsubscribe from the newsletter at any time,
+either on our website or by using the following link:
+
+http://{{ site.domain }}{{ object.unsubscription_url }}
