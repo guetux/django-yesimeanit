@@ -18,6 +18,8 @@ class NewsletterSubscriptionManager(SubscriptionManager):
             object = self.get(email=email)
         except self.model.DoesNotExist:
             object = self.model(email=email)
+        except self.model.MultipleObjectsReturned: # This cannot happen (but it does anyway)
+            object = self.filter(email=email)[0]
 
         for k, v in kwargs.items():
             setattr(object, k, v)
